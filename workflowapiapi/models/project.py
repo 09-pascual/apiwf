@@ -14,3 +14,4 @@ class Project(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
     expected_duration = models.IntegerField()
+    groups = models.ManyToManyField("Group", through="ProjectGroup", related_name="groups")
