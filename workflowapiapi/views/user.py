@@ -6,6 +6,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id', 'username', 'first_name', 'last_name', 'birth_date', 
                  'phone_number', 'nickname', 'role']
+        read_only_fields = ['role']
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
