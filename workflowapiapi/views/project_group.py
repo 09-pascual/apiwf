@@ -16,8 +16,4 @@ class ProjectGroupSerializer(serializers.ModelSerializer):
 
 class ProjectGroupViewSet(viewsets.ModelViewSet):
     queryset = ProjectGroup.objects.all()
-    
-    def get_serializer_class(self):
-        if self.action in ['list', 'retrieve']:
-            return ProjectGroupReadSerializer
-        return ProjectGroupSerializer
+    serializer_class = ProjectGroupSerializer

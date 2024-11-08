@@ -1,5 +1,5 @@
 from rest_framework import viewsets, serializers
-from workflowapiapi.models import Worker
+from workflowapiapi.models import Worker, User
 from .user import UserSerializer
 from .project_worker import ProjectWorkerSerializer
 from .group_worker import GroupWorkerSerializer
@@ -12,6 +12,7 @@ class WorkerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Worker
         fields = ['id', 'user', 'availability_status', 'projectworker_set', 'groupworker_set']
+        depth = 1
         # Note: 'projects' will be handled through ProjectWorker
 
 class WorkerViewSet(viewsets.ModelViewSet):

@@ -15,11 +15,12 @@ class ProjectSerializer(serializers.ModelSerializer):
 class ProjectWriteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields = ['id', 'client', 'name', 'status', 'start_date', 'end_date',
+        fields = ['id', 'client', 'name', 'status', 'start_date', 'end_date', 
                  'expected_duration']
-        
+
 class ProjectViewSet(viewsets.ModelViewSet):
     queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
 
     def get_serializer_class(self):
         if self.action in ['create', 'update', 'partial_update']:
